@@ -147,7 +147,7 @@ import { environment } from '@/environments/environment.prod';
 
 /**
  * Khai báo các api của module
- * Khắc Tiềm 13-03-2023
+ * TVTHAI 13-03-2023
  */
  const api:ProductApi = new ProductApi();
 
@@ -229,7 +229,7 @@ function selectPage(page: any){
 
 /**
  * Trước khi mounted sẽ load dữ liệu 1 lần
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 onBeforeMount(() => {
   find.value.v_KeyWord = keyWord.value;

@@ -3,7 +3,7 @@ import { useStore } from "vuex";
 
 /**
  * Chứa các hàm base đã xây dựng
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class Utils extends UtilsComponents{
   /** Store vuex */

@@ -5,7 +5,7 @@ import { CurrentUser } from "../entities/services-system/current_user";
 
 /**
  * Chứa các hàm thao tác với localstorage
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class StorageService {
 	/** Giá trị item */

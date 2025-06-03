@@ -6,7 +6,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 /** 
  * Chứa toàn bộ các base thêm sửa xoá được xây dựng
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class Grid extends Utils{
   /** Api được truyền vào từ lớp khởi tạo */

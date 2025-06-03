@@ -9,7 +9,7 @@ export default class ProductApi extends BaseApi {
 
   /**
    * API Change Password
-   * Khắc Tiềm - 08.03.2023
+   * TVTHAI - 08.03.2023
    */
   public getProductHome = (keyWord: any) => {
     return axiosAPI.post(`/Products/GetProductHome`, keyWord)
@@ -17,7 +17,7 @@ export default class ProductApi extends BaseApi {
 
   /**
    * API Change Password
-   * Khắc Tiềm - 08.03.2023
+   * TVTHAI - 08.03.2023
    */
   public getProductPrice = () => {
     return axiosAPI.get(`/Products/GetProductPrice`)
@@ -25,7 +25,7 @@ export default class ProductApi extends BaseApi {
 
   /**
    * API Change Password
-   * Khắc Tiềm - 08.03.2023
+   * TVTHAI - 08.03.2023
    */
   public getProductHot = () => {
     return axiosAPI.get(`/Products/GetProductHot`)
@@ -34,7 +34,7 @@ export default class ProductApi extends BaseApi {
   /**
    * API lấy tất cả danh sách bản ghi tìm kiếm và phân trang
    * @returns Danh sách bản ghi và tổng số lượng
-   * Khắc Tiềm - 08.03.2023
+   * TVTHAI - 08.03.2023
    */
   public getRecordPage = (filter: any) => {
     return axiosAPI.post(`/Products/FilterShop`, filter);

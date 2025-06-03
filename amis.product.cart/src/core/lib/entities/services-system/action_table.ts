@@ -2,7 +2,7 @@ import type { ModuleName } from "./module_name";
 
 /** 
  * Lưu thông tin các action table
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class ActionTable {
   /** Thêm */
@@ -26,7 +26,7 @@ export class ActionTable {
 
 /** 
  * Thông tin cơ bản table 
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
 */
 export class InfoTable {
   /** Hành động mặc định */
@@ -47,7 +47,7 @@ export class InfoTable {
 
 /**
  * Tìm kiếm và lọc phân trang
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class Filter {
   /** Thứ tự bản ghi muốn lấy */
@@ -68,7 +68,7 @@ export class Filter {
 
 /**
  * Kiểu lọc
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class ComparisonTypeSearch {
   /** Kiểu tìm kiếm (text, number, ...)*/
@@ -98,7 +98,7 @@ export class ComparisonTypeSearch {
 
 /**
  * Lọc theo định dạng backend trong db
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class TypeSearch{
   /** Kiểu text */
@@ -113,7 +113,7 @@ export class TypeSearch{
 
 /**
  * Lọc theo hình thức ui 
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class TypeFilter{
   /** Kiểu number */
@@ -134,7 +134,7 @@ export class TypeFilter{
 
 /**
  * Lọc theo hình thức so sánh
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class ComparisonType {
   /** Bằng */
@@ -176,7 +176,7 @@ export class ComparisonType {
 
 /**
  * Thông tin khai báo các cột header column
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class Header {
   constructor(field: string = '',fieldSelect: string= '' , header: string = '', width: string = '100', filter: FilterHeaderIn = new FilterHeaderIn(), typeFormat: TypeFormat = new TypeFormat(), isShow: boolean = true, fixColumn: boolean = false){
@@ -264,7 +264,7 @@ export class TypeFormat {
 
 /**
  * Dữ liệu đầu vào khi lọc
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class FilterHeaderIn {
   /** Kiểu tìm kiếm định dạng backend trong db */
@@ -300,7 +300,7 @@ export class FilterHeaderIn {
 
 /**
  * Option join
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
  */
 export class Join {
   /** Kiểu join bảng */
@@ -315,7 +315,7 @@ export class Join {
 
 /** 
  * Kiểu join bảng 
- * Khắc Tiềm - 08.03.2023
+ * TVTHAI - 08.03.2023
 */
 export class TypeJoin {
   /** Kiểu inner join */
