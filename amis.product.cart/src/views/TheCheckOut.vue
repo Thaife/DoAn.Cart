@@ -32,7 +32,7 @@
                                 <br>
                                 101869684468
                                 <br>
-                                Chúng tôi sẽ liên hệ thanh toán với bạn, hãy giữ lại bill
+                                <!-- Chúng tôi sẽ liên hệ thanh toán với bạn, hãy giữ lại bill -->
                             </div>
                         </div>
         
@@ -194,6 +194,7 @@ import CouponApi from "@/api/module/coupon";
 import { Cart, Grid, Order } from "@/core/public_api";
 import { computed, onBeforeMount, reactive, ref } from "vue";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import router from "@/router";
 
 const api:CartApi = new CartApi();
 const couponApi:CouponApi = new CouponApi();
@@ -221,7 +222,7 @@ function checkout(){
     Swal.fire({
       position: 'top-end',
       icon: 'error',
-      title: 'Hãy chọn mua sản phẩn vào giỏ hàng rồi thanh toán',
+      title: 'Hãy chọn mua sản phẩm vào giỏ hàng rồi thanh toán',
       showConfirmButton: false,
       timer: 1500
     })
@@ -263,10 +264,11 @@ function checkout(){
         Swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'Đã xác nhận đơn hàng, hãy đến quản lý đơn hàng để theo dõi đơn hàng',
+          title: 'Đã xác nhận đơn hàng',
           showConfirmButton: false,
           timer: 1500
         })
+        router.push("/order")
       });
     }
   })

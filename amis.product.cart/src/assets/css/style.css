@@ -974,7 +974,8 @@ a.text-primary:hover {
 }
 
 .product:hover .product-hover-overlay {
-  opacity: 1;
+  /* opacity: 1; */
+  visibility: visible;
 }
 
 .product:hover .img-second {
@@ -1007,9 +1008,10 @@ a.text-primary:hover {
   bottom: 120px;
   left: 0px;
   width: 100%;
-  -webkit-transition: .4s all;
-  transition: .4s all;
-  opacity: 0;
+  /* -webkit-transition: .2s all; */
+  /* transition: .2s all; */
+  /* opacity: 0; */
+  visibility: hidden;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;

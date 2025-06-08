@@ -3,6 +3,8 @@ import { Utils } from './utils';
 import type BaseApi from '@/api/base_api';
 import CartApi from '@/api/module/cart';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import router from '@/router';
+import ProductApi from '@/api/module/product';
 
 /** 
  * Chứa toàn bộ các base thêm sửa xoá được xây dựng
@@ -12,6 +14,7 @@ export class Grid extends Utils{
   /** Api được truyền vào từ lớp khởi tạo */
   public api: BaseApi;
   public apiCart:CartApi = new CartApi();
+  public apiProduct: ProductApi = new ProductApi();
 
   /** Key word tìm kiếm mặc định */
   public keyword:string = '';
@@ -24,6 +27,46 @@ export class Grid extends Utils{
   
   /** Hàm gọi api */
   public apiService = new ApiService();
+  
+
+  public toCheckout = (cart: Cart) => {
+    let query = {
+      "v_CategoryID": "",
+      "v_TrademarkID": "",
+      "v_OriginID": "",
+      "v_DepotID": "",
+      "v_PriceStart": "0",
+      "v_PriceEnd": "9000000000000",
+      "v_KeyWord": "",
+      "v_Page": 99
+    }
+    let itemInValidQuanity:any = [];
+    let cardDetails = cart.cartDetail;
+    this.apiService.callApi(this.apiProduct.getRecordPage, query, (res: any)=> {
+      cardDetails.forEach(card => {
+        let itemExist = res.recordList.find((item:CartDetail) => item.productID == card.productID)
+        if(itemExist.quantity < card.quantity) {
+          itemInValidQuanity.push(itemExist)
+        }
+      });
+      var textError = "";
+      if(itemInValidQuanity.length > 0) {
+        itemInValidQuanity.forEach((itemInValid: any) => {
+          textError += `${itemInValid.productName} chỉ còn lại ${itemInValid.quantity} Sản phẩm\n`;
+        });
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: textError,
+          showConfirmButton: false,
+          timer: 30000
+        })
+        console.log(itemInValidQuanity)
+      } else {
+        router.push('/checkout');
+      }
+    });  
+  }
 
   public calcTotalPriceCart = (cart: Cart) => {
     let total = 0;

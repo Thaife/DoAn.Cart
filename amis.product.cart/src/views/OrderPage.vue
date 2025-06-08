@@ -30,18 +30,22 @@
                             <table class="table shop_table shop_table_responsive cart" cellspacing="0">
                                 <thead>
                                 <tr>
+                                    <th class="product-name no-warp">ID đơn hàng</th>
                                     <th class="product-name no-warp">Tên khách hàng</th>
                                     <th class="product-name no-warp">Số điện thoại</th>
                                     <th class="product-name no-warp">Email</th>
                                     <th class="product-quantity no-warp">Ghi chú</th>
                                     <th class="product-quantity no-warp">Ngày đặt hàng</th>
                                     <th class="product-quantity no-warp">Trạng thái</th>
-                                    <th class="product-subtotal"></th>
+                                    <th class="product-subtotal" style="width: 120px;"></th>
                                 </tr>
                                 </thead>
         
                                 <tbody>
                                 <tr v-for="item in orderList" :key="item.orderID" class="cart_item">
+                                    <td class="product-thumbnail">
+                                      {{ item.orderID }}
+                                    </td>
                                     <td class="product-thumbnail no-warp">
                                       {{ item.userName }}
                                     </td>
@@ -60,7 +64,7 @@
                                     <td class="product-thumbnail">
                                       <span> {{ Base.formatStatus(item.status) }}</span>
                                     </td>
-                                    <td class="product-thumbnail">
+                                    <td class="product-thumbnail" style="width: 120px; font-size: 13px;">
                                       <button @click="showOrderDetail(item.orderID)" type="button" class="btn-coupon btn btn-black btn-small" name="apply_coupon">Xem chi tiết</button>
                                     </td>
                                 </tr>
@@ -95,6 +99,8 @@
                     <div class="product-list">
                         <div class="cart-form">
                           <p>
+                            ID đơn hàng: {{ orderDetail.orderID }}
+                            <br>
                             Đơn hàng: {{ orderDetail.userName }} - {{ orderDetail.phoneNumber }} - {{ orderDetail.email }} - {{ Base.formatDateDDMMYYYYHHMMSS(orderDetail.modifiedDate + '') }}
                             <br>
                             Địa chỉ: {{ orderDetail.address }} -  {{ orderDetail.ward }} -  {{ orderDetail.district }} -  {{ orderDetail.province }}
@@ -156,7 +162,7 @@
                     </div>
                     <div class="col-lg-6">
                     <div class="cart-info card p-4 mt-4">
-                        <h4 class="mb-4">tổng số giỏ hàng</h4>
+                        <h4 class="mb-4">Giỏ hàng</h4>
                         <ul class="list-unstyled mb-4">
                             <li class="d-flex justify-content-between pb-2 mb-3">
                             <h5>Tổng tiền sản phẩm</h5>
@@ -230,7 +236,8 @@ onBeforeMount(() => {
   margin-left: 8px;
   padding: 4px 8px;
   height: 45px;
-  width: 150px;
+  width: 120px;
+  font-size: 14px;
 }
 .no-warp{
   white-space: nowrap !important;

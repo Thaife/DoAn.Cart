@@ -46,11 +46,11 @@
          
                  <div class="row">
                   <div v-for="item in ProductList" :key="item.productID" class="col-lg-4 col-12 col-md-6 col-sm-6 mb-5" >
-                    <div class="product">
+                    <div class="product" style="position: relative;">
                       <div class="product-wrap">
                         <RouterLink :to="`/productDetails?productID=${item.productID}`"><img class="img-fluid w-100 mb-3 img-first" :src="environment.IMAGE_API + item.avatar" alt="product-img" /></RouterLink>
                       </div>
-                      <div class="product-hover-overlay">
+                      <div v-if="item.quantity > 0" class="product-hover-overlay">
                           <RouterLink to="/shop" @click="Base.addToCart(item.productID)"><i class="tf-ion-android-cart"></i></RouterLink>
                       </div>
               
@@ -60,6 +60,9 @@
                               {{ Base.Comma(item.price) }} đ
                           </span>
                       </div>
+                    </div>
+                    <div v-if="item.quantity <= 0" class="outStock">
+                      <div class="outStock-1">Hết hàng</div>
                     </div>
                  </div>
 
@@ -257,5 +260,20 @@ onBeforeMount(() => {
 </script>
 
 <style scoped>
+.outStock{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -3px;
+  left: 20px;
+}
+.outStock-1 {
+  background: rgb(116, 112, 112);
+  color: white;
+  padding: 2px 4px;
 
+}
+.product-wrap {
+    height: 272px;
+}
 </style>

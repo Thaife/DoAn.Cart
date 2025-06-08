@@ -56,6 +56,7 @@ export class Product extends BaseEntity{
 
   /**  Giá*/
   public price:number = 0 ;
+  public purchasePrice:number = 0 ;
 
   /** Giới tính */
   public gender: Gender = Gender.Male;
@@ -71,6 +72,8 @@ export class Product extends BaseEntity{
   
   /**  Thời hạn bảo hành */
   public warrantyPeriod: string = ''  ;
+
+  public quantity:number = 0;
 
   /**  Hình ảnh */
   public avatar: string = ''  ;

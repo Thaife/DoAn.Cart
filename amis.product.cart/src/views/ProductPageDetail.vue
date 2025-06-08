@@ -41,10 +41,14 @@
                          <p class="product-description">
                          Chất liệu: {{ product.material }}
                          </p>
+                          <p class="product-description">
+                         Số lượng còn lại: {{ product.quantity }}
+                         </p>
              
                          <form class="cart" action="#" method="post">
                          <div class="quantity d-flex align-items-center">
-                             <a @click="Base.addToCart(product.productID)" style="cursor: pointer;" class="btn btn-main btn-small">Thêm vào giỏ</a>
+                            <div v-if="product.quantity <= 0" class="btn btn-small disabled">Hết hàng</div>
+                             <a v-else @click="Base.addToCart(product.productID)" style="cursor: pointer;" class="btn btn-main btn-small">Thêm vào giỏ</a>
                          </div>
                          </form>
              
@@ -110,9 +114,9 @@
                             </div>
                 
                             <span class="onsale">Sale</span>
-                            <div class="product-hover-overlay">
-                            <a @click="Base.addToCart(item.productID)"><i class="tf-ion-android-cart"></i></a>
-                                </div>
+                            <div v-if="item.quantity > 0" class="product-hover-overlay">
+                                <a @click="Base.addToCart(item.productID)"><i class="tf-ion-android-cart"></i></a>
+                            </div>
                 
                             <div class="product-info">
                             <h2 class="product-title h5 mb-0"><RouterLink @click="handleChangQuery(item.productID)" :to="`/productDetails?productID=${item.productID}`">{{ item.productName }}</RouterLink></h2>
@@ -120,6 +124,9 @@
                                 {{ Base.Comma(item.price) }} đ
                             </span>
                             </div>
+                        </div>
+                        <div v-if="item.quantity <= 0" class="outStock">
+                            <div class="outStock-1">Hết hàng</div>
                         </div>
                      </div>
                  </div>
@@ -165,4 +172,27 @@ function handleChangQuery(productID:string){
 </script>
 
 <style scoped>
+.btn.disabled {
+ background-color: #000;
+ color: white;
+}
+.tf-ion-android-cart {
+    color: white;
+}
+.outStock{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -3px;
+  left: 20px;
+}
+.outStock-1 {
+  background: rgb(116, 112, 112);
+  color: white;
+  padding: 2px 4px;
+
+}
+.product-wrap {
+    height: 272px;
+}
 </style>

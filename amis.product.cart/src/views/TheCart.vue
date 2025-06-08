@@ -81,7 +81,7 @@
                 <div class="row justify-content-end">
                     <div class="col-lg-4">
                     <div class="cart-info card p-4 mt-4">
-                        <h4 class="mb-4">tổng số giỏ hàng</h4>
+                        <h4 class="mb-4">Tổng số giỏ hàng</h4>
                         <ul class="list-unstyled mb-4">
                             <li class="d-flex justify-content-between pb-2 mb-3">
                             <h5>Tổng tiền sản phẩm</h5>
@@ -96,7 +96,7 @@
                             <span>{{ Base.Comma(Base.calcTotalPriceCart(cart)) }} đ</span>
                             </li>
                         </ul>
-                        <router-link to="/checkout" class="btn btn-main btn-small">Đi đến thanh toán</router-link>
+                        <div @click="Base.toCheckout(cart)" class="btn btn-main btn-small">Đi đến thanh toán</div>
                     </div>
                     </div>
                 </div>
@@ -123,11 +123,14 @@ onBeforeMount(() => {
 })
 </script>
 
-<style scoped>
+<style>
 .btn-check-cart{
     width: 40px;
     height: 40px;
     margin: 8px;
     padding: 4px 4px;
+}
+.swal2-popup {
+    width: 1248px;
 }
 </style>

@@ -24,7 +24,7 @@
                      
                     <li><RouterLink class="nav-link" to="/shop">Sản phẩm</RouterLink></li>
                     <li><RouterLink class="nav-link" to="/cart">Giỏ hàng</RouterLink></li>
-                    <li><RouterLink class="nav-link" to="/checkout">Thanh toán</RouterLink></li>
+                    <!-- <li><RouterLink class="nav-link" to="/checkout">Thanh toán</RouterLink></li> -->
                 </ul>
                 </li>
             </ul>
@@ -59,7 +59,7 @@
                     <span class="total-price h6">{{ Base.Comma(Base.calcTotalPriceCart(cart)) }} đ</span>
                     <div class="text-center cart-buttons mt-3">
                     <router-link to="/cart" class="btn btn-small btn-transparent btn-block">Giỏ hàng</router-link>
-                    <router-link to="/checkout" class="btn btn-small btn-main btn-block">Thanh toán</router-link>
+                    <!-- <router-link to="/checkout" class="btn btn-small btn-main btn-block">Thanh toán</router-link> -->
                     </div>
                 </div>
                 </div>
