@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group mb-4">
-                                        <label for="company_name">Địa chỉ email của bạn (* Bắt buộc điền)</label>
+                                        <label for="company_name">Địa chỉ email của bạn</label>
                                         <input v-model="order.email" type="text" class="form-control" id="company_name" placeholder="" />
                                     </div>
                                 </div>
@@ -217,6 +217,18 @@ function applyCoupon(){
   });
 }
 
+function isValidEmail(email: string) {
+  if(!email) return true;
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+function isOnlyDigits(str: string) {
+  if(!str) return true;
+  const regex = /^\d+$/;
+  return regex.test(str);
+}
+
 function checkout(){
   if(cart.value.cartDetail.length === 0){
     Swal.fire({
@@ -230,7 +242,6 @@ function checkout(){
   }
   if(!order.value.userName.trim()||
   !order.value.phoneNumber.trim()||
-  !order.value.email.trim()||
   !order.value.province||
   !order.value.ward||
   !order.value.district||
@@ -244,6 +255,27 @@ function checkout(){
     })
     return;
   }
+
+  if(!isValidEmail(order.value.email)) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Email không hợp lệ',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    return;
+  } else if(!isOnlyDigits(order.value.phoneNumber.trim())) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Số điện thoại không hợp lệ',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    return;
+  }
+
   order.value.currentUser = Base.currentUser.currentUser;
   Swal.fire({
     title: 'Xác nhận thanh toán đặt hàng?',
